@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Landing Page</title>
+
+    <!-- TAILWIND CLI -->
+    <link rel="stylesheet" href="./dist/output.css">
+    <!-- FONTAWESOME CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- AOS  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<!-- FAQ -->
+<style>
+    .faqBox_underline {
+        position: relative;
+    }
+
+    .faqBox_underline::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: -2px;
+        background: #facc15;
+        box-shadow: #facc15;
+        transition: width 0.3s ease;
+    }
+
+    .group:hover .faqBox_underline::after {
+        width: 100%;
+    }
+</style>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="bg-black text-white sticky top-0 z-50 shadow">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo with Title -->
+                <div class="flex flex-col justify-center">
+                    <a href="#" class="text-xl font-bold text-white hover:text-gray-200 transition">
+                        Advocate Sharma
+                    </a>
+                    <span class="text-sm text-gray-400 -mt-1">Supreme Court Advocate</span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-6 text-sm font-medium relative">
+                    <!-- Active link with top yellow line -->
+                    <div class="relative group">
+                        <a href="#home" class="text-white transition-all duration-300">
+                            Home
+                        </a>
+                        <span class="absolute top-0 left-0 w-full h-0.5 bg-yellow-400"></span>
+                    </div>
+
+                    <!-- Other links with yellow underline on hover -->
+                    <div class="relative group">
+                        <a href="#about" class="text-white transition-all duration-300 group-hover:text-yellow-400">
+                            About
+                        </a>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+                    </div>
+
+                    <div class="relative group">
+                        <a href="#services" class="text-white transition-all duration-300 group-hover:text-yellow-400">
+                            Services
+                        </a>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+                    </div>
+
+                    <div class="relative group">
+                        <a href="#contact" class="text-white transition-all duration-300 group-hover:text-yellow-400">
+                            Contact
+                        </a>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+                    </div>
+                </nav>
+
+                <!-- Call Now Button with FontAwesome Icon -->
+                <div class="hidden md:block ml-4">
+                    <a href="tel:+919999999999"
+                        class="inline-flex items-center gap-2 bg-yellow-500 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-400 hover:scale-105 transition-all duration-300 shadow">
+                        <i class="fas fa-phone-alt"></i>
+                        Call Now
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="focus:outline-none">
+                        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hidden"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black text-white px-4 pb-4">
+            <a href="#home"
+                class="block py-2 border-b border-gray-800 hover:text-yellow-400 transition-all duration-300">Home</a>
+            <a href="#about"
+                class="block py-2 border-b border-gray-800 hover:text-yellow-400 transition-all duration-300">About</a>
+            <a href="#services"
+                class="block py-2 border-b border-gray-800 hover:text-yellow-400 transition-all duration-300">Services</a>
+            <a href="#contact"
+                class="block py-2 border-b border-gray-800 hover:text-yellow-400 transition-all duration-300">Contact</a>
+            <a href="tel:+919999999999"
+                class="flex items-center justify-center gap-2 mt-4 bg-yellow-500 text-black text-center px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition-all duration-300">
+                <i class="fas fa-phone-alt"></i>
+                Call Now
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative h-[600px] w-full bg-black bg-contain bg-center bg-no-repeat"
+        style="background-image: url('./images/background/hero-section.png');">
+
+        <!-- Optional Dark Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
+            <h1 class="text-xl md:text-5xl font-bold text-white mb-4">
+                Justice With Experience & Integrity
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">
+                Supreme Court Advocate with 15+ years of dedication to civil, criminal & corporate law.
+                You deserve expert representation.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact"
+                    class="bg-yellow-500 text-black font-semibold px-6 py-3 rounded hover:bg-yellow-400 transition duration-300">
+                    Book Appointment
+                </a>
+                <a href="tel:+919999999999"
+                    class="flex items-center gap-2 border border-yellow-500 text-yellow-500 px-6 py-3 rounded hover:bg-yellow-500 hover:text-black transition duration-300">
+                    <i class="fas fa-phone-alt"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="bg-gray-50 py-20 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+
+            <!-- Image Left with Hover Effect -->
+            <div
+                class="w-full md:w-1/2 relative overflow-hidden rounded-3xl shadow-lg transform transition-transform duration-500 hover:scale-102 hover:shadow-2xl">
+                <img src="https://cdn.pixabay.com/photo/2020/03/18/15/42/right-4944546_1280.jpg"
+                    alt="Professional lawyer working at desk" class="w-full h-auto object-cover rounded-3xl" />
+                <!-- Optional subtle overlay glow -->
+                <div
+                    class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-yellow-400/20 via-transparent to-yellow-500/20 pointer-events-none">
+                </div>
+            </div>
+
+            <!-- Text Right -->
+            <div class="w-full md:w-1/2 text-left">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">About Advocate Sharma</h2>
+                <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                    With over 15 years of experience practicing law in India’s highest courts, Advocate Sharma delivers
+                    justice with precision,
+                    compassion, and professionalism. From high-profile civil matters to corporate and criminal defense,
+                    trust is built on results.
+                </p>
+                <ul class="space-y-4 text-gray-800">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-scale-balanced text-yellow-500 text-xl mt-1"></i>
+                        <span class="font-medium">15+ Years Supreme Court Experience</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-gavel text-yellow-500 text-xl mt-1"></i>
+                        <span class="font-medium">Civil, Criminal & Corporate Law Expertise</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-handshake-angle text-yellow-500 text-xl mt-1"></i>
+                        <span class="font-medium">Ethical, Transparent & Client-Focused</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="bg-black text-white py-20 px-6 md:px-12 ">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-yellow-400 mb-12 text-center">Our Services</h2>
+
+            <!-- Tabs -->
+            <div class="flex justify-center space-x-8 mb-12 border-b border-gray-700">
+                <button
+                    class="tab-btn pb-3 border-b-4 border-yellow-400 font-semibold text-yellow-400 focus:outline-none"
+                    data-tab="civil">Civil Law</button>
+                <button
+                    class="tab-btn pb-3 border-b-4 border-transparent text-gray-400 hover:text-yellow-400 hover:border-yellow-400 font-semibold focus:outline-none"
+                    data-tab="criminal">Criminal Law</button>
+                <button
+                    class="tab-btn pb-3 border-b-4 border-transparent text-gray-400 hover:text-yellow-400 hover:border-yellow-400 font-semibold focus:outline-none"
+                    data-tab="corporate">Corporate Law</button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div>
+                <!-- Civil Law Tab -->
+                <div class="tab-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-content="civil">
+                    <div class="bg-neutral-800 p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.7)] transform perspective-[1000px] rotate-x-1 rotate-y-1 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/30"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-yellow-400 text-4xl mb-4 animate-bounce">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Property Disputes</h3>
+                        <p class="text-gray-300">Handling property cases with expertise and clarity in court.</p>
+                    </div>
+
+                    <div class="bg-neutral-800 p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.7)] transform perspective-[1000px] rotate-x-1 rotate-y-1 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/30"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-yellow-400 text-4xl mb-4 animate-pulse">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Contract Drafting</h3>
+                        <p class="text-gray-300">Strong legal documentation to protect your civil rights.</p>
+                    </div>
+
+                    <div class="bg-neutral-800 p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.7)] transform perspective-[1000px] rotate-x-1 rotate-y-1 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/30"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-yellow-400 text-4xl mb-4 animate-bounce">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Family Law</h3>
+                        <p class="text-gray-300">Compassionate legal support in family and inheritance matters.</p>
+                    </div>
+                </div>
+
+                <!-- Criminal Law Tab -->
+                <div class="tab-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    data-content="criminal">
+                    <div class="bg-neutral-800 p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.7)] transform perspective-[1000px] rotate-x-1 rotate-y-1 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/30"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-yellow-400 text-4xl mb-4 animate-bounce">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Theft Defense</h3>
+                        <p class="text-gray-300">Protecting clients with strong legal defense in theft-related cases.
+                        </p>
+                    </div>
+
+                    <div class="bg-neutral-800 p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.7)] transform perspective-[1000px] rotate-x-1 rotate-y-1 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/30"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-yellow-400 text-4xl mb-4 animate-pulse">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">White Collar Crime</h3>
+                        <p class="text-gray-300">Handling corporate fraud and high-profile financial crime cases.</p>
+                    </div>
+
+                    <div class="bg-neutral-800 p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.7)] transform perspective-[1000px] rotate-x-1 rotate-y-1 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/30"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-yellow-400 text-4xl mb-4 animate-bounce">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Assault Cases</h3>
+                        <p class="text-gray-300">Experienced legal help in violent crime and assault defense.</p>
+                    </div>
+                </div>
+
+                <!-- Corporate Law Tab -->
+                <div class="tab-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    data-content="corporate">
+                    <div class="bg-neutral-800 p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.7)] transform perspective-[1000px] rotate-x-1 rotate-y-1 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/30"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-yellow-400 text-4xl mb-4 animate-bounce">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Company Setup</h3>
+                        <p class="text-gray-300">All legal steps for smooth business registration and compliance.</p>
+                    </div>
+
+                    <div class="bg-neutral-800 p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.7)] transform perspective-[1000px] rotate-x-1 rotate-y-1 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/30"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-yellow-400 text-4xl mb-4 animate-pulse">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Business Contracts</h3>
+                        <p class="text-gray-300">Create legally sound agreements for your business needs.</p>
+                    </div>
+
+                    <div class="bg-neutral-800 p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.7)] transform perspective-[1000px] rotate-x-1 rotate-y-1 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/30"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-yellow-400 text-4xl mb-4 animate-bounce">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Mergers & Acquisitions</h3>
+                        <p class="text-gray-300">Supporting companies through major legal transitions and deals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section id="why-choose-us" class="relative text-white py-20 px-6 md:px-12"
+        style="background-image: url('https://images.unsplash.com/photo-1535868463750-c78d9543614f?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+        <!-- Overlay: black + subtle yellow texture -->
+        <div class="absolute inset-0 bg-black bg-opacity-75"></div>
+        <!-- <div class="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 via-yellow-400/5 to-transparent pointer-events-none"></div> -->
+
+        <div class="relative max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-2 inline-block relative text-yellow-400">
+                Why Choose Us
+                <span class="absolute left-1/2 bottom-0 w-24 h-1 bg-yellow-400 rounded-full -translate-x-1/2"></span>
+            </h2>
+            <p class="text-gray-300 max-w-3xl mx-auto mb-16 text-lg">
+                Discover the qualities that set Advocate Sharma apart in legal excellence and client dedication.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-between gap-10">
+                <!-- USP 1 -->
+                <div
+                    class="flex items-center space-x-5 bg-neutral-900 border border-gray-700 rounded-lg p-5 hover:border-yellow-400 transition duration-300 shadow-sm hover:shadow-md">
+                    <div class="flex-shrink-0 bg-yellow-400 text-[#222222] rounded-full p-4 text-3xl shadow">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-white">Experienced Advocate</h3>
+                        <p class="text-gray-300 max-w-xs">15+ years of courtroom success and legal expertise.</p>
+                    </div>
+                </div>
+
+                <!-- USP 2 -->
+                <div
+                    class="flex items-center space-x-5 bg-neutral-900 border border-gray-700 rounded-lg p-5 hover:border-yellow-400 transition duration-300 shadow-sm hover:shadow-md">
+                    <div class="flex-shrink-0 bg-yellow-400 text-[#222222] rounded-full p-4 text-3xl shadow">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-white">Client-Centered Approach</h3>
+                        <p class="text-gray-300 max-w-xs">Personalized legal strategies tailored to your needs.</p>
+                    </div>
+                </div>
+
+                <!-- USP 3 -->
+                <div
+                    class="flex items-center space-x-5 bg-neutral-900 border border-gray-700 rounded-lg p-5 hover:border-yellow-400 transition duration-300 shadow-sm hover:shadow-md">
+                    <div class="flex-shrink-0 bg-yellow-400 text-[#222222] rounded-full p-4 text-3xl shadow">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-white">Trusted Defense</h3>
+                        <p class="text-gray-300 max-w-xs">Strong, reliable representation in complex legal matters.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between gap-10 mt-12">
+                <!-- USP 4 -->
+                <div
+                    class="flex items-center space-x-5 bg-neutral-900 border border-gray-700 rounded-lg p-5 hover:border-yellow-400 transition duration-300 shadow-sm hover:shadow-md">
+                    <div class="flex-shrink-0 bg-yellow-400 text-[#222222] rounded-full p-4 text-3xl shadow">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-white">Comprehensive Services</h3>
+                        <p class="text-gray-300 max-w-xs">Civil, criminal, corporate law — complete legal support.</p>
+                    </div>
+                </div>
+
+                <!-- USP 5 -->
+                <div
+                    class="flex items-center space-x-5 bg-neutral-900 border border-gray-700 rounded-lg p-5 hover:border-yellow-400 transition duration-300 shadow-sm hover:shadow-md">
+                    <div class="flex-shrink-0 bg-yellow-400 text-[#222222] rounded-full p-4 text-3xl shadow">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-white">Prompt & Responsive</h3>
+                        <p class="text-gray-300 max-w-xs">Timely communication and quick case progress updates.</p>
+                    </div>
+                </div>
+
+                <!-- USP 6 -->
+                <div
+                    class="flex items-center space-x-5 bg-neutral-900 border border-gray-700 rounded-lg p-5 hover:border-yellow-400 transition duration-300 shadow-sm hover:shadow-md">
+                    <div class="flex-shrink-0 bg-yellow-400 text-[#222222] rounded-full p-4 text-3xl shadow">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1 text-white">Recognized Excellence</h3>
+                        <p class="text-gray-300 max-w-xs">Award-winning service with a reputation for integrity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL SECTION -->
+    <section id="testimonials" class="bg-gray-50 py-20 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 data-aos="fade-down" class="text-4xl font-extrabold mb-8 text-gray-900">What Clients Say</h2>
+            <p data-aos="fade-down" data-aos-delay="100" class="max-w-2xl mx-auto mb-12 text-gray-600">
+                Hear from our satisfied clients who experienced dedicated and professional legal services.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div data-aos="fade-up" data-aos-delay="200"
+                    class="bg-white p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105 cursor-pointer flex flex-col justify-between"
+                    style="min-height: 200px;">
+                    <p class="text-gray-700 italic mb-6 flex-grow">
+                        "Advocate Sharma provided exceptional support and won my case with professionalism and care."
+                    </p>
+                    <div class="flex items-center space-x-4 mt-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1"
+                            class="w-12 h-12 rounded-full object-cover" />
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-900">Ravi Kumar</p>
+                            <p class="text-sm text-gray-500">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div data-aos="fade-up" data-aos-delay="300"
+                    class="bg-white p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105 cursor-pointer flex flex-col justify-between"
+                    style="min-height: 200px;">
+                    <p class="text-gray-700 italic mb-6 flex-grow">
+                        "Professional, knowledgeable, and truly dedicated to their clients. Highly recommend!"
+                    </p>
+                    <div class="flex items-center space-x-4 mt-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 2"
+                            class="w-12 h-12 rounded-full object-cover" />
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-900">Sneha Patel</p>
+                            <p class="text-sm text-gray-500">Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div data-aos="fade-up" data-aos-delay="400"
+                    class="bg-white p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105 cursor-pointer flex flex-col justify-between"
+                    style="min-height: 200px;">
+                    <p class="text-gray-700 italic mb-6 flex-grow">
+                        "The best legal advice I’ve ever received. Very responsive and compassionate."
+                    </p>
+                    <div class="flex items-center space-x-4 mt-4">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client 3"
+                            class="w-12 h-12 rounded-full object-cover" />
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-900">Amit Singh</p>
+                            <p class="text-sm text-gray-500">Corporate Executive</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="bg-black text-white py-16 px-6" id="faq" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-extrabold text-center mb-5 relative text-yellow-400">
+                Frequently asked questions
+                <span class="absolute left-1/2 bottom-0 w-24 h-1 bg-yellow-400 rounded-full -translate-x-1/2 "></span>
+            </h2>
+
+            <div id="faqBox_items" class="space-y-4">
+
+                <!-- FAQ 1 (Open by default) -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden">
+                    <button class="w-full flex justify-between items-center px-6 py-4 faqBox_toggle group relative">
+                        <span
+                            class="text-lg font-medium group-hover:text-yellow-400 transition duration-300 faqBox_underline">What
+                            services do you offer for legal professionals?</span>
+                        <i class="fa-solid fa-minus text-white transition-all"></i>
+                    </button>
+                    <div class="faqBox_content px-6 pb-4 open" style="overflow: hidden; height: auto; opacity: 1;">
+                        <p>We offer landing pages, appointment systems, SEO optimization, and branding solutions
+                            specifically tailored for advocates.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden">
+                    <button class="w-full flex justify-between items-center px-6 py-4 faqBox_toggle group relative">
+                        <span
+                            class="text-lg font-medium group-hover:text-yellow-400 transition duration-300 faqBox_underline">How
+                            long does it take to deliver a landing page?</span>
+                        <i class="fa-solid fa-plus text-white transition-all"></i>
+                    </button>
+                    <div class="faqBox_content px-6 pb-4" style="overflow: hidden; height: 0; opacity: 0;">
+                        <p>Our standard delivery time is 3–5 business days based on the selected package and
+                            requirements.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-gray-700 rounded-xl overflow-hidden">
+                    <button class="w-full flex justify-between items-center px-6 py-4 faqBox_toggle group relative">
+                        <span
+                            class="text-lg font-medium group-hover:text-yellow-400 transition duration-300 faqBox_underline">Can
+                            I request changes after delivery?</span>
+                        <i class="fa-solid fa-plus text-white transition-all"></i>
+                    </button>
+                    <div class="faqBox_content px-6 pb-4" style="overflow: hidden; height: 0; opacity: 0;">
+                        <p>Yes, we offer 2 free revisions in our standard plan. Extra changes may incur additional
+                            charges.</p>
+                    </div>
+                </div>
+
+                <!-- Show More Area (Optional) -->
+                <div id="faqBox_moreFaqs" class="hidden mt-6">
+                    <!-- Add more FAQs here -->
+                    <div class="border border-gray-700 rounded-xl overflow-hidden">
+                        <button class="w-full flex justify-between items-center px-6 py-4 faqBox_toggle group relative">
+                            <span
+                                class="text-lg font-medium group-hover:text-yello-400 transition duration-300 faqBox_underline">Can
+                                I request changes after delivery?</span>
+                            <i class="fa-solid fa-plus text-white transition-all"></i>
+                        </button>
+                        <div class="faqBox_content px-6 pb-4" style="overflow: hidden; height: 0; opacity: 0;">
+                            <p>Yes, we offer 2 free revisions in our standard plan. Extra changes may incur additional
+                                charges.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toggle Button -->
+                <div class="text-center mt-6">
+                    <button id="faqBox_toggleBtn" class="text-yellow-400 hover:underline">Show More</button>
+                </div>
+
+                <!-- disclaimer -->
+                <p class="mt-6 text-sm text-gray-400 text-center">
+                    Can't find your answer?
+                    <a href="#contact"
+                        class="text-yellow-400 hover:underline hover:text-yellow-300 transition-all duration-200">
+                        Contact us now
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="bg-white text-black py-16 px-6" id="contact" data-aos="fade-up">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+
+            <!-- LEFT: Enhanced Contact Info -->
+            <div class="space-y-6">
+
+                <!-- Heading + Tagline -->
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-1">Get In Touch</h2>
+                    <p class="text-gray-700 italic text-sm">"Justice. Integrity. Results."</p>
+                </div>
+
+                <!-- Profile Photo (Optional) -->
+                <div class="flex items-center gap-4">
+                    <img src="https://cdn.pixabay.com/photo/2019/12/18/13/07/right-4703937_1280.jpg" alt="Advocate Photo"
+                        class="w-20 h-20 rounded-full border-2 border-yellow-500 shadow">
+                    <div>
+                        <p class="text-xl font-semibold">Adv. Sharma</p>
+                        <p class="text-sm text-gray-500">Bar Council Reg. No: <span
+                                class="font-medium">D/1234/2012</span></p>
+                    </div>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="space-y-4 text-gray-800">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-phone text-green-500 text-xl mt-1"></i>
+                        <div>
+                            <p class="font-semibold">Phone</p>
+                            <a href="tel:+919999999999" class="hover:text-green-600 transition">+91 99999 99999</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-envelope text-sky-500 text-xl mt-1"></i>
+                        <div>
+                            <p class="font-semibold">Email</p>
+                            <a href="mailto:advocate@email.com"
+                                class="hover:text-sky-600 transition">advocate@email.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-location-dot text-red-500 text-xl mt-1"></i>
+                        <div>
+                            <p class="font-semibold">Chamber Address</p>
+                            <a href="https://maps.google.com/?q=123, Law Street, District Court Area, Delhi"
+                                target="_blank" class="text-sm hover:text-red-600 transition">
+                                123, Law Street, District Court Area, Delhi
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-clock text-indigo-500 text-xl mt-1"></i>
+                        <div>
+                            <p class="font-semibold">Office Hours</p>
+                            <p class="text-sm">Mon - Sat: 10:00 AM – 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice Areas -->
+                <div>
+                    <p class="font-semibold mb-2">Practice Areas:</p>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Criminal Law</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Civil Litigation</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Property Disputes</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Family Matters</span>
+                    </div>
+                </div>
+
+                <!-- Social Links with Fancy Tooltip -->
+                <div class="pt-2">
+                    <p class="font-semibold mb-1">Connect:</p>
+                    <div class="flex gap-6 text-xl relative">
+
+                        <!-- LinkedIn -->
+                        <div class="group relative flex items-center justify-center">
+                            <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <span
+                                class="absolute -top-10 scale-0 group-hover:scale-100 transition-transform duration-100 bg-gray-900 text-white text-xs px-3 py-1 rounded-md shadow-lg whitespace-nowrap">
+                                Connect on LinkedIn
+                            </span>
+                        </div>
+
+                        <!-- X (formerly Twitter) -->
+                        <div class="group relative flex items-center justify-center">
+                            <a href="#" target="_blank" class="text-black hover:text-gray-800">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <span
+                                class="absolute -top-10 scale-0 group-hover:scale-100 transition-transform duration-100 bg-gray-900 text-white text-xs px-3 py-1 rounded-md shadow-lg whitespace-nowrap">
+                                Follow on X
+                            </span>
+                        </div>
+
+                        <!-- Advocate Profile -->
+                        <div class="group relative flex items-center justify-center">
+                            <a href="#" target="_blank" class="text-gray-600 hover:text-black">
+                                <i class="fas fa-briefcase"></i>
+                            </a>
+                            <span
+                                class="absolute -top-10 scale-0 group-hover:scale-100 transition-transform duration-100 bg-gray-900 text-white text-xs px-3 py-1 rounded-md shadow-lg whitespace-nowrap">
+                                View Advocate Profile
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!--RIGHT: CONTACT FORM CARD -->
+            <div class="bg-gray-100 p-8 rounded-2xl shadow-xl max-w-6xl mx-auto">
+
+                <!-- Heading -->
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold flex items-center gap-2">
+                        <i class="fas fa-envelope text-yellow-500"></i>
+                        Send a Message
+                    </h3>
+                    <p class="text-sm text-gray-500">We usually respond within 24 hours.</p>
+                </div>
+
+                <!-- FORM START -->
+                <form id="contactForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Full Name -->
+                    <div class="relative w-full">
+                        <input type="text" id="name" name="name" placeholder=" " required
+                            class="peer w-full p-4 border border-gray-300 rounded-md bg-white text-black placeholder-transparent focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+                        <label for="name"
+                            class="absolute left-4 top-4 text-gray-500 text-sm transition-all duration-200 ease-in-out 
+      peer-placeholder-shown:top-4 peer-placeholder-shown:text-base 
+      peer-focus:top-1 peer-focus:text-sm peer-focus:text-yellow-600 
+      peer-[&:not(:placeholder-shown)]:top-1 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-yellow-600">
+                            Full Name
+                        </label>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="relative w-full">
+                        <input type="email" name="email" id="email" placeholder=" " required
+                            class="peer w-full p-4 border border-gray-300 rounded-md bg-white text-black placeholder-transparent focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+                        <label for="email"
+                            class="absolute left-4 top-4 text-gray-500 text-sm transition-all duration-200 ease-in-out 
+      peer-placeholder-shown:top-4 peer-placeholder-shown:text-base 
+      peer-focus:top-1 peer-focus:text-sm peer-focus:text-yellow-600 
+      peer-[&:not(:placeholder-shown)]:top-1 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-yellow-600">
+                            Email Address
+                        </label>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="relative w-full">
+                        <input type="tel" id="phone" name="phone" placeholder=" " required pattern="^\d{10}$"
+                            maxlength="10" title="Enter 10-digit phone number"
+                            class="peer w-full p-4 border border-gray-300 rounded-md bg-white text-black placeholder-transparent focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+                        <label for="phone"
+                            class="absolute left-4 top-4 text-gray-500 text-sm transition-all duration-200 ease-in-out 
+      peer-placeholder-shown:top-4 peer-placeholder-shown:text-base 
+      peer-focus:top-1 peer-focus:text-sm peer-focus:text-yellow-600 
+      peer-[&:not(:placeholder-shown)]:top-1 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-yellow-600">
+                            Phone Number
+                        </label>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="relative w-full">
+                        <input type="text" id="location" name="location" placeholder=" " required
+                            pattern="^[A-Za-z\s]+$" title="City should only contain letters"
+                            class="peer w-full p-4 border border-gray-300 rounded-md bg-white text-black placeholder-transparent focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+                        <label for="location"
+                            class="absolute left-4 top-4 text-gray-500 text-sm transition-all duration-200 ease-in-out 
+      peer-placeholder-shown:top-4 peer-placeholder-shown:text-base 
+      peer-focus:top-1 peer-focus:text-sm peer-focus:text-yellow-600 
+      peer-[&:not(:placeholder-shown)]:top-1 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-yellow-600">
+                            City / Location
+                        </label>
+                    </div>
+
+                    <!-- Preferred Contact Method -->
+                    <div class="relative w-full">
+                        <select id="contact_method" name="contact_method" required
+                            class="peer appearance-none w-full p-4 border border-gray-300 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <option value="" hidden selected></option>
+                            <option value="Email">Email</option>
+                            <option value="Phone Call">Phone Call</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                        </select>
+                        <label for="contact_method" class="absolute left-4 top-4 bg-white px-1 text-gray-500 text-sm transition-all duration-200 ease-in-out 
+      peer-focus:top-1 peer-focus:text-sm peer-focus:text-yellow-600 
+      peer-[&:not([value=''])]:top-1 peer-[&:not([value=''])]:text-sm peer-[&:not([value=''])]:text-yellow-600">
+                            Preferred Contact Method
+                        </label>
+                        <!-- Dropdown Arrow -->
+                        <div class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Preferred Time -->
+                    <div class="relative w-full">
+                        <input type="text" id="contact_time" name="contact_time" placeholder=" " required
+                            pattern="^[A-Za-z0-9\s:]+$" title="Use formats like 10:00 AM or Evening"
+                            class="peer w-full p-4 border border-gray-300 rounded-md bg-white text-black placeholder-transparent focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+                        <label for="contact_time"
+                            class="absolute left-4 top-4 text-gray-500 text-sm transition-all duration-200 ease-in-out 
+      peer-placeholder-shown:top-4 peer-placeholder-shown:text-base 
+      peer-focus:top-1 peer-focus:text-sm peer-focus:text-yellow-600 
+      peer-[&:not(:placeholder-shown)]:top-1 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-yellow-600">
+                            Preferred Time to Contact
+                        </label>
+                    </div>
+
+                    <!-- Urgency Level -->
+                    <div class="relative w-full md:col-span-2">
+                        <select id="urgency" name="urgency" required
+                            class="peer appearance-none w-full p-4 border border-gray-300 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <option value="" hidden selected></option>
+                            <option value="Normal">Normal</option>
+                            <option value="Urgent">Urgent</option>
+                            <option value="Very Urgent">Very Urgent</option>
+                        </select>
+                        <label for="urgency" class="absolute left-4 top-4 bg-white px-1 text-gray-500 text-sm transition-all duration-200 ease-in-out 
+      peer-focus:top-1 peer-focus:text-sm peer-focus:text-yellow-600 
+      peer-[&:not([value=''])]:top-1 peer-[&:not([value=''])]:text-sm peer-[&:not([value=''])]:text-yellow-600">
+                            Urgency Level
+                        </label>
+                        <!-- Dropdown Arrow -->
+                        <div class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="relative w-full md:col-span-2">
+                        <textarea id="message" name="message" rows="4" placeholder=" " required
+                            class="peer w-full p-4 border border-gray-300 rounded-md bg-white text-black placeholder-transparent focus:outline-none focus:ring-2 focus:ring-yellow-500 resize-none"></textarea>
+                        <label for="message"
+                            class="absolute left-4 top-4 text-gray-500 text-sm transition-all duration-200 ease-in-out 
+      peer-placeholder-shown:top-4 peer-placeholder-shown:text-base 
+      peer-focus:top-1 peer-focus:text-sm peer-focus:text-yellow-600 
+      peer-[&:not(:placeholder-shown)]:top-1 peer-[&:not(:placeholder-shown)]:text-sm peer-[&:not(:placeholder-shown)]:text-yellow-600">
+                            Your Message
+                        </label>
+                    </div>
+
+                    <!-- Hidden Fields -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Inquiry from Advocate Landing Page">
+
+                    <!-- Submit -->
+                    <div class="md:col-span-2">
+                        <button type="submit"
+                            class="w-full bg-black text-white font-semibold py-3 rounded-md flex justify-center items-center gap-2 hover:bg-yellow-500 hover:text-black transition duration-300">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Toast -->
+                <div id="successToast"
+                    class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg shadow-xl hidden transition duration-300 z-50">
+                    ✅ Form submitted successfully! We’ll contact you within 24 hours.
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white py-12 px-6" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+
+            <!-- Advocate Info -->
+            <div>
+                <h4 class="text-2xl font-bold mb-2">Adv. Sharma</h4>
+                <p class="italic text-sm text-gray-300">"Justice. Integrity. Results."</p>
+                <p class="mt-3 text-xs text-gray-400">Bar Council Reg. No: <span class="font-medium">D/1234/2012</span>
+                </p>
+                <div class="mt-4 text-sm space-y-1">
+                    <p>📞 <a href="tel:+919999999999" class="hover:text-yellow-500">+91 99999 99999</a></p>
+                    <p>📧 <a href="mailto:advocate@email.com" class="hover:text-yellow-500">advocate@email.com</a></p>
+                </div>
+                <p class="text-xs text-gray-400 mt-3">
+                    Certified by Delhi Bar Council | Member of XYZ Association
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h5 class="font-semibold text-lg mb-4">Quick Links</h5>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><a href="#hero" class="hover:text-yellow-500 transition">Home</a></li>
+                    <li><a href="#services" class="hover:text-yellow-500 transition">Practice Areas</a></li>
+                    <li><a href="#faq" class="hover:text-yellow-500 transition">FAQ</a></li>
+                    <li><a href="#contact" class="hover:text-yellow-500 transition">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h5 class="font-semibold text-lg mb-4">Newsletter</h5>
+                <p class="text-sm text-gray-300 mb-3">Subscribe to receive legal updates & insights.</p>
+                <form class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Enter your email" required
+                        class="w-full px-4 py-2 rounded-md bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+                    <button type="submit"
+                        class="bg-yellow-500 text-black font-semibold px-4 py-2 rounded-md hover:bg-yellow-400 transition">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="text-xs text-gray-400 mt-2">We respect your privacy. No spam ever.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Links Row -->
+        <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row justify-end items-center mt-10 text-sm text-gray-400 gap-4">
+
+            <!-- Terms & Privacy -->
+            <div class="flex gap-6 justify-end">
+                <a href="#" class="hover:text-yellow-500 transition">Privacy Policy</a>
+                <a href="#" class="hover:text-yellow-500 transition">Terms & Conditions</a>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-gray-700 mt-6 pt-4 text-center text-xs text-gray-500">
+            &copy; 2025 Adv. Sharma. All rights reserved.
+            <!-- Social Icons -->
+            <div class="flex justify-center gap-6 text-xl">
+                <a href="#" target="_blank" class="hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" class="hover:text-white transition"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" target="_blank" class="hover:text-yellow-500 transition"><i
+                        class="fas fa-briefcase"></i></a>
+            </div>
+            <span class="block mt-1 italic">Designed & Developed with ❤️ by <a href="#"
+                    class="text-yellow-500 hover:text-yellow-200">Nikhil Sharma</a></span>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- TABS LOGIC FOR SERVICES SECTION -->
+    <script>
+        // Tab switching logic
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tab = btn.dataset.tab;
+
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('border-yellow-400', 'text-yellow-400');
+                    b.classList.add('border-transparent', 'text-gray-400');
+                });
+
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+                btn.classList.add('border-yellow-400', 'text-yellow-400');
+                btn.classList.remove('border-transparent', 'text-gray-400');
+
+                document.querySelector(`.tab-content[data-content="${tab}"]`).classList.remove('hidden');
+            });
+        });
+    </script>
+
+
+    <!-- MOBILE TOGGLE SCRIPT -->
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+
+        toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        });
+    </script>
+
+
+    <!-- FAQ SECTION SCRIPT -->
+    <script>
+        (function () {
+            const faqBox_toggles = document.querySelectorAll('.faqBox_toggle');
+
+            faqBox_toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('i');
+                    const isOpen = content.classList.contains('open');
+
+                    document.querySelectorAll('.faqBox_content').forEach(el => {
+                        if (el !== content) {
+                            faqBox_close(el);
+                            el.previousElementSibling.querySelector('i').classList.remove('fa-minus');
+                            el.previousElementSibling.querySelector('i').classList.add('fa-plus');
+                        }
+                    });
+
+                    if (isOpen) {
+                        faqBox_close(content);
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    } else {
+                        faqBox_open(content);
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                });
+            });
+
+            function faqBox_open(el) {
+                el.classList.add('open');
+                el.style.display = 'block';
+                el.style.height = '0px';
+                el.style.opacity = '0';
+
+                requestAnimationFrame(() => {
+                    const height = el.scrollHeight + 'px';
+                    el.style.transition = 'height 0.4s ease, opacity 0.4s ease';
+                    el.style.height = height;
+                    el.style.opacity = '1';
+                });
+
+                setTimeout(() => {
+                    el.style.height = 'auto';
+                    el.style.transition = 'none';
+                }, 400);
+            }
+
+            function faqBox_close(el) {
+                const height = el.scrollHeight + 'px';
+                el.style.height = height;
+                el.style.opacity = '1';
+
+                requestAnimationFrame(() => {
+                    el.style.transition = 'height 0.4s ease, opacity 0.4s ease';
+                    el.style.height = '0px';
+                    el.style.opacity = '0';
+                });
+
+                setTimeout(() => {
+                    el.style.transition = 'none';
+                    el.classList.remove('open');
+                    el.style.display = 'none';
+                }, 400);
+            }
+
+            // Show More / Less Toggle
+            const toggleBtn = document.getElementById('faqBox_toggleBtn');
+            const moreFaqs = document.getElementById('faqBox_moreFaqs');
+            let isVisible = false;
+
+            if (toggleBtn && moreFaqs) {
+                toggleBtn.addEventListener('click', () => {
+                    isVisible = !isVisible;
+
+                    if (isVisible) {
+                        moreFaqs.style.display = 'block';
+                    } else {
+                        moreFaqs.style.display = 'none';
+                    }
+
+                    toggleBtn.textContent = isVisible ? 'Show Less' : 'Show More';
+                });
+            }
+
+        })();
+    </script>
+
+    <!-- CONTACT FORM Validation & AJAX -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const toast = document.getElementById('successToast');
+
+        // Limit phone input to numbers only
+        document.getElementById('phone').addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+        });
+
+        // Limit city input to letters/spaces
+        document.getElementById('location').addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+        });
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const endpoint = "https://formspree.io/f/xvgrldbr"; // Your Formspree endpoint
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: "POST",
+                    headers: { 'Accept': 'application/json' },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    toast.classList.remove('hidden');
+                    setTimeout(() => toast.classList.add('hidden'), 3000);
+                    form.reset();
+                } else {
+                    alert("❌ Something went wrong. Please try again.");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("⚠️ Submission failed. Check your connection.");
+            }
+        });
+    </script>
+
+
+    <!-- AOS SCRIPT -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+
+
+</body>
+
+</html>
