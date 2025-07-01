@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css"
-  },
+  "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
